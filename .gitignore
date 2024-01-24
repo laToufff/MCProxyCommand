@@ -144,3 +144,6 @@ velocity-runner/run/*
 !velocity-runner/run/secret.txt
 !velocity-runner/run/plugins/
 velocity-runner/run/plugins/bStats
+
+# Visual Studio Code workspace file
+.vscode/
