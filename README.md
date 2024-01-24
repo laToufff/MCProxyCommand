@@ -1,6 +1,6 @@
-# Proxy Command
+# Fresh Proxy Command
 
-A command that allows to send commands from you minecraft server instances to a velocity proxy.
+This project is a fork of the project [Proxy Command](https://modrinth.com/mod/proxy-command) from [michiruf](https://modrinth.com/user/michiruf) updated for the new version of Minecraft.
 
 
 ## Installation
@@ -12,11 +12,10 @@ To install this mod on fabric minecraft servers these requirements must be met:
 * You have a velocity server up and running
 * You must install both the fabric mod and the velocity plugin
 
-This fabric mod is available on [modrinth](https://modrinth.com/mod/proxy-command) with slug `proxy-command` and the
-velocity plugin is available on [github-releases]().
+This fabric mod is available on [modrinth](https://modrinth.com/mod/fresh-proxy-command) with slug `fresh-proxy-command` and the velocity plugin is available on the [original project releases](https://github.com/michiruf/MCProxyCommand/releases/tag/1.0) ([direct download](https://github.com/michiruf/MCProxyCommand/releases/download/1.0/proxy-command-velocity-1.0-1-9fa21f82.jar))
 
-The project source is available on [github/michiruf](https://github.com/michiruf/MCProxyCommand) with the latest
-readme [here](https://github.com/michiruf/MCProxyCommand/blob/master/README.md).
+The project source is available on [github/laToufff](https://github.com/laToufff/MCProxyCommand) with the latest
+readme [here](https://github.com/laToufff/MCProxyCommand/blob/master/README.md).
 
 
 ## Usage instructions
@@ -31,20 +30,10 @@ For example, you can teleport all players to a different server with a command b
 execute as @a run proxycommand "server SERVERNAME"
 ```
 
-## Synergizing other mods
-
-* [ServerPortals](https://github.com/michiruf/MCServerPortals) ([modrinth](https://modrinth.com/mod/server-portals))
-
-
-## Changelog
-
-Changelog per release cycle can be found [here](https://github.com/michiruf/MCProxyCommand/blob/master/CHANGELOG.md).
-This changelog contains information from one release to the next one.
-
 
 ## License
 
-[MIT License](https://github.com/michiruf/MCProxyCommand/blob/master/LICENSE)
+[MIT License](https://github.com/laToufff/MCProxyCommand/blob/master/LICENSE)
 
 
 ## Additional reading (for devs)
