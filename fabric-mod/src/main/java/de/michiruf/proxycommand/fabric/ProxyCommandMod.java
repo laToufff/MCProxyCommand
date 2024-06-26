@@ -4,17 +4,16 @@ import com.mojang.brigadier.CommandDispatcher;
 import com.mojang.brigadier.arguments.StringArgumentType;
 import com.mojang.brigadier.context.CommandContext;
 import com.mojang.brigadier.tree.LiteralCommandNode;
-import de.michiruf.proxycommand.common.ProxyCommandConstants;
 import net.fabricmc.api.ModInitializer;
 import net.fabricmc.fabric.api.command.v2.CommandRegistrationCallback;
-import net.fabricmc.fabric.api.networking.v1.PacketByteBufs;
+import net.fabricmc.fabric.api.networking.v1.PayloadTypeRegistry;
 import net.fabricmc.fabric.api.networking.v1.ServerPlayNetworking;
 import net.minecraft.server.command.CommandManager;
 import net.minecraft.server.command.ServerCommandSource;
 import net.minecraft.text.Text;
-import net.minecraft.util.Identifier;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+
 
 /**
  * @author Michael Ruf
@@ -28,6 +27,7 @@ public class ProxyCommandMod implements ModInitializer {
     public void onInitialize() {
         LOGGER.info("ProxyCommand is active");
         CommandRegistrationCallback.EVENT.register((dispatcher, registry, environment) -> registerCommand(dispatcher));
+        PayloadTypeRegistry.playS2C().register(CommandPayload.ID, CommandPayload.CODEC);
     }
 
     private static void registerCommand(CommandDispatcher<ServerCommandSource> dispatcher) {
@@ -55,8 +55,11 @@ public class ProxyCommandMod implements ModInitializer {
         // is the connection to the proxy indeed)
         ServerPlayNetworking.send(
                 player,
-                new Identifier(ProxyCommandConstants.COMMAND_PACKET_ID),
-                PacketByteBufs.create().writeString(command));
+                new CommandPayload(command));
+
+                //new Identifier(ProxyCommandConstants.COMMAND_PACKET_ID),
+                //PacketByteBufs.create().writeString(command));
         return 1;
     }
+
 }
